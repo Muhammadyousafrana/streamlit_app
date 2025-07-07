@@ -6,7 +6,7 @@ from PIL import Image
 # Custom function to load the pre-trained model
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model("streamlit_app/ai_imageclassifier.h5")
+    model = tf.keras.models.load_model("ai_imageclassifier.h5")
     return model
 
 # Function to resize and predict
