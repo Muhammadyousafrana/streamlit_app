@@ -6,7 +6,7 @@ from PIL import Image
 # Custom function to load the pre-trained model
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model("ai_imageclassifier.h5", compile=False)
+    model = tf.keras.models.load_model("imageclassifier.h5", compile=False)
     return model
 
 # Function to resize and predict
@@ -15,7 +15,7 @@ def predict(model, image):
     print("Resized Image Shape:", resize.shape)  # Debugging: Print resized image shape
     y_pred = model.predict(np.expand_dims(resize / 255.0, 0))
     print("prediction: ", y_pred)
-    if y_pred < 0.30:
+    if y_pred < 0.50:
         return "REAL IMAGE"
     else:
         return "AI GENERATED IMAGE"
