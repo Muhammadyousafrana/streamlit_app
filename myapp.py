@@ -14,7 +14,7 @@ def predict(model, image):
     resize = tf.image.resize(image, (32, 32))
     print("Resized Image Shape:", resize.shape)  # Debugging: Print resized image shape
     y_pred = model.predict(np.expand_dims(resize / 255.0, 0))
-    if y_pred < 0.50:
+    if y_pred < 0.40:
         return "REAL IMAGE"
     else:
         return "AI GENERATED IMAGE"
